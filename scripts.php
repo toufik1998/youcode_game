@@ -3,7 +3,7 @@ include('database.php');
 
 session_start();
 
-if(isset($_POST['save']))        saveProducts();
+if(isset($_POST['save']))        saveUser();
 if(isset($_POST['login']))        getProducts();
 if(isset($_POST['add']))        addProducts();
 if(isset($_POST['delete']))        deleteProducts();
@@ -13,7 +13,7 @@ if(isset($_POST['update']))      updateProduct();
 
 
 
-function saveProducts(){
+function saveUser(){
     $conn = connection();
 
     $fname = $lname = $email = $password = $pwd = '';
@@ -77,7 +77,12 @@ function addProducts(){
     $product_price = $_POST['product-price'];
     $description = $_POST['description'];
 
-    $sql = "INSERT INTO products (`product_name`, `description`, `amount`, `date`, `price`) VALUES ('$product_name','$description','$product_amount','$product_date','$product_price')";
+    // insert image to the server
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "./image/" . $filename;
+
+    $sql = "INSERT INTO products (`product_name`, `description`, `filename`, `amount`, `date`, `price`) VALUES ('$product_name','$description','$filename','$product_amount','$product_date','$product_price')";
     // $result = mysqli_query($conn, $sql)
 
     // if($result == true){
@@ -88,6 +93,13 @@ function addProducts(){
         echo "Records inserted successfully.";
     } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+    }
+
+    // Now let's move the uploaded image into the folder: image
+    if (move_uploaded_file($tempname, $folder)) {
+        echo "<h3>  Image uploaded successfully!</h3>";
+    } else {
+        echo "<h3>  Failed to upload image!</h3>";
     }
 
     mysqli_close($conn);
@@ -114,10 +126,10 @@ function getTasks(){
                         <td>
                             <div class="d-flex align-items-center">
                                 <img
-                                    src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                                    src="./image/'.$row['filename'].'"
                                     alt=""
-                                    style="width: 45px; height: 45px"
-                                    class="rounded-circle"
+                                    style="width: 65px; height: 65px"
+                                    class="rounded-circle bg-white"
                                 />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">'.$row['product_name'].'</p>
@@ -202,6 +214,8 @@ function getSpecificTask($id){
                 $aResult[2] = $row['date'];
                 $aResult[3] = $row['price'];
                 $aResult[4] = $row['description'];
+                $aResult[5] = $row['filename'];
+
             }
             // Free result set
             mysqli_free_result($result);
@@ -226,12 +240,23 @@ function updateProduct(){
     $product_price = $_POST['product-price'];
     $description = $_POST['description'];
 
-    $sql = "UPDATE products  SET `product_name`='$product_name', `amount`='$product_amount', `date`='$product_date', `price`='$product_price', `description`='$description' WHERE id = '$update_id'";
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "./image/" . $filename;
+
+
+    $sql = "UPDATE products  SET `product_name`='$product_name', `amount`='$product_amount', `filename`='$filename', `date`='$product_date', `price`='$product_price', `description`='$description' WHERE id = '$update_id'";
 
     if(mysqli_query($conn, $sql)){
         echo "Records inserted successfully.";
     } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+    }
+
+    if (move_uploaded_file($tempname, $folder)) {
+        echo "<h3>  Image uploaded successfully!</h3>";
+    } else {
+        echo "<h3>  Failed to upload image!</h3>";
     }
 
     mysqli_close($conn);

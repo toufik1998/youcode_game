@@ -1,11 +1,6 @@
 
-
-
 document.querySelector("#addButton").addEventListener("click", ()=>{
-    // clearForm();
-
     document.querySelector("#task-save-btn").style.display = 'block';
-    // document.querySelector("#task-delete-btn").style.display = 'none';
     document.querySelector("#task-update-btn").style.display = 'none';
 });
 
@@ -30,6 +25,8 @@ function editTask(id){
             document.getElementById('product-date').value                                    = obj[2];
             document.getElementById('product-price').value                                   = obj[3];
             document.getElementById('product-description').value                             = obj[4];
+            document.getElementById('product-image').value                                   = obj[5];
+
         }
     });
 
@@ -40,28 +37,3 @@ function deleteProduct(){
         document.querySelector("#buttonDelete").click();
     }
 }
-
-
-// signupForm.addEventListener("submit", (e) =>{
-//     let regexName = /^[a-z0-9_-]{3,15}$/;
-//     let regexEmail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
-//     let regexPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
-
-
-//     if(!regexName.test(userName.value)){
-//         e.preventDefault();
-//         userName.innerText = 'Please enter a valid user name';
-//         userName.style.border = '1px solid red';
-//     }
-
-// });
-
-// userName.onblur = function () {
-//     let regexName = /^[a-z0-9_-]{3,15}$/;
-    
-//     if(!regexName.test(userName.value)){
-//         userName.innerText = 'Please enter a valid user name';
-//         userName.style.border = '1px solid red';
-//     }
-// }
-

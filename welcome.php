@@ -142,7 +142,7 @@ if(mysqli_num_rows($result) > 0)
 		<!-- END #sidebar -->
 		
 		<!-- BEGIN #content -->
-		<div id="content" class="app-content" style="min-height: 100vh; background: url(assets/img/cover/cover-scrum-board.png) no-repeat fixed; background-size: 360px; background-position: right bottom;">
+		<div id="content" class="app-content">
 			<div class="d-flex align-items-center mb-3">
 				<div>
 					<!-- BEGIN page-header -->
@@ -204,7 +204,7 @@ if(mysqli_num_rows($result) > 0)
 	<div class="modal fade" id="modal-task">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="scripts.php" method="POST" id="form-task">
+				<form action="scripts.php" method="POST" id="form-task" enctype="multipart/form-data">
 					<div class="modal-header">
 						<h5 class="modal-title">Add Task</h5>
 						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
@@ -219,6 +219,10 @@ if(mysqli_num_rows($result) > 0)
 							<div class="mb-3">
 								<label class="form-label">Product Amount</label>
 								<input type="number" name="product-amount" class="form-control" id="product-amount"/>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Product Image</label>
+								<input type="file" name="uploadfile" class="form-control" id="product-image"/>
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Date</label>
