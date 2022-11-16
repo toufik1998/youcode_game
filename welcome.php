@@ -1,6 +1,10 @@
 <?php
 include('scripts.php');
-// session_start();
+
+if(!isset($_SESSION['email'])){
+	header("Location: index.php");
+}
+
 
 $conn = connection();
 $sesion_id = $_SESSION['id'];
@@ -72,7 +76,7 @@ if(mysqli_num_rows($result) > 0)
 						<a href="javascript:;" class="dropdown-item">Calendar</a>
 						<a href="javascript:;" class="dropdown-item">Setting</a>
 						<div class="dropdown-divider"></div>
-						<a href="javascript:;" class="dropdown-item">Log Out</a>
+						<a href="./logout.php" class="dropdown-item">Log Out</a>
 					</div>
 				</div>
 			</div>

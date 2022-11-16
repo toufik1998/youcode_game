@@ -90,7 +90,12 @@ header .header-img img{
 
 }
 
+/* validation error message */
+ul li.parsley-type{
+    color: red;
+}
 
+/* remeber that you need to delete classes you dont  */
 .registration-form .social-media{
     max-width: 600px;
     background-color: #fff;

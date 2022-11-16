@@ -18,6 +18,7 @@ function saveUser(){
 
     $fname = $lname = $email = $password = $pwd = '';
 
+
     $fname = $_POST['first-name'];
     $lname = $_POST['last-name'];
     $email = $_POST['email'];

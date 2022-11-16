@@ -2,6 +2,7 @@
 
 include('scripts.php');
 
+
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +14,7 @@ include('scripts.php');
     <title>Game Products</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/parsley/parsley_css.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -59,26 +61,26 @@ include('scripts.php');
                 </div>
                 <div class="col-md-6">
                     <div class="registration-form">
-                        <form action="scripts.php" method="POST" id="signup-form">
+                        <form action="scripts.php" method="POST" id="demo-form" data-parsley-validate="" data-parsley-trigger="keyup">
                             <img src="assets/images/youcode-logo-transparent.png" class="mb-3" alt="">
                             <div class="form-group">
-                                <input type="text" name="first-name" onblur="nameErr(this)" class="form-control item" id="first-name" placeholder="First Name" required>
-                                <p id="name-err" class="text-danger fs-7 d-none"> please enter a valid user name</p>
+                                <input type="text" name="first-name"  class="form-control item" id="first-name" placeholder="First Name" required>
+                                <!-- <p id="name-err" class="text-danger fs-7 d-none"> please enter a valid user name</p> -->
                             </div>
                             <div class="form-group">
-                                <input type="text" name="last-name" onblur="nameErr(this)" class="form-control item" id="last-name" placeholder="Last Name" required>
+                                <input type="text" name="last-name"  class="form-control item" id="last-name" placeholder="Last Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="email" onblur="emailError(this)" class="form-control item" id="email" placeholder="Email" required>
-                                 <p id="email-err" class="text-danger fs-7 d-none"> please enter a valid Email</p>
+                                <input type="text" name="email" data-parsley-type="email" class="form-control item" id="email" placeholder="Email" required>
+                                 <!-- <p id="email-err" class="text-danger fs-7 d-none"> please enter a valid Email</p> -->
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" onblur="passwordError(this)" class="form-control item" id="password" placeholder="Password" required>
-                                <p id="password-err" class="text-danger fs-7 d-none"> please enter a valid Password</p>
+                                <input type="password" name="password" data-parsley-pattern="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/" class="form-control item" id="password" placeholder="Password" required>
+                                <!-- <p id="password-err" class="text-danger fs-7 d-none"> please enter a valid Password</p> -->
                             </div>
                             
                             <div class="form-group">
-                                <button id="disable-btn" type="submit"  disabled name="save" class="btn btn-block create-account">Create Account</button>
+                                <button id="disable-btn" type="submit"   name="save" class="btn btn-block create-account">Create Account</button>
                                 <button type="submit" name="already" class="btn btn-block create-account already-account ">                                
                                    <a href="log-in.php"> Sign In </a>
                                 </button>
@@ -93,9 +95,9 @@ include('scripts.php');
     </header>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="./assets/parsley_js/jquery-3.6.1.min.js"></script>
-    <script src="./assets/parsley_js/parsley.min.js"></script>
-    <script>
+    <script src="./assets/parsley/jquery-3.6.1.min.js"></script>
+    <script src="./assets/parsley/parsley.min.js"></script>
+    <!-- <script>
 
         let signupForm = document.getElementById("signup-form");
         let userName = document.getElementById("first-name");
@@ -154,6 +156,6 @@ include('scripts.php');
                 errorPassword.classList.add("d-none");
             }
         }
-    </script>
+    </script> -->
 </body>
 </html>
