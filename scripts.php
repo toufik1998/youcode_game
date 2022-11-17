@@ -4,7 +4,7 @@ include('database.php');
 session_start();
 
 if(isset($_POST['save']))        saveUser();
-if(isset($_POST['login']))        getProducts();
+if(isset($_POST['login']))        getUser();
 if(isset($_POST['add']))        addProducts();
 if(isset($_POST['delete']))        deleteProducts();
 if(isset($_POST['openTask']))    getSpecificTask($_POST['openTask']);
@@ -25,7 +25,11 @@ function saveUser(){
     $pwd = $_POST['password'];
     $password = md5($pwd);
 
-    $sql = "INSERT INTO admins (first_name,last_name,email,password) VALUES ('$fname','$lname','$email','$password')";
+    $admin_img = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "./image/" . $admin_img;
+
+    $sql = "INSERT INTO admins (first_name,last_name,email,password,admin_img) VALUES ('$fname','$lname','$email','$password', '$admin_img')";
     $result = mysqli_query($conn, $sql);
 
     if($result)
@@ -36,10 +40,18 @@ function saveUser(){
     {
         echo "Error :".$sql;
     }
+
+    // Now let's move the uploaded image into the folder: image
+    if (move_uploaded_file($tempname, $folder)) {
+        echo "<h3>  Image uploaded successfully!</h3>";
+    } else {
+        echo "<h3>  Failed to upload image!</h3>";
+    }
+
 }
 
 
-function getProducts(){
+function getUser(){
     $conn = connection();
 
     $email = $password = $pwd = '';
@@ -56,8 +68,10 @@ function getProducts(){
             {
                 $id = $row["id"];
                 $email = $row["email"];
+                $admin_image = $row["admin_img"];
                 $_SESSION['id'] = $id;
                 $_SESSION['email'] = $email;
+                $_SESSION['admin_image'] = $admin_image;
             }
             header("Location: welcome.php");
         }
@@ -84,11 +98,6 @@ function addProducts(){
     $folder = "./image/" . $filename;
 
     $sql = "INSERT INTO products (`product_name`, `description`, `filename`, `amount`, `date`, `price`) VALUES ('$product_name','$description','$filename','$product_amount','$product_date','$product_price')";
-    // $result = mysqli_query($conn, $sql)
-
-    // if($result == true){
-    //     echo "data added to your database";
-    // }
 
     if(mysqli_query($conn, $sql)){
         echo "Records inserted successfully.";
