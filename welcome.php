@@ -8,7 +8,7 @@ if(!isset($_SESSION['email'])){
 
 $conn = connection();
 $sesion_id = $_SESSION['id'];
-$fname = $lname = $email = '';
+$fname = $lname = $email = $admin_image = '';
 $sql = "SELECT * FROM admins WHERE id='$sesion_id'";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) > 0)
@@ -18,6 +18,7 @@ if(mysqli_num_rows($result) > 0)
 		$fname = $row["first_name"];
 		$lname = $row["last_name"];
 		$email = $row["email"];
+		$admin_image = $row["admin_img"];
 	}
 }
 ?>
@@ -61,7 +62,11 @@ if(mysqli_num_rows($result) > 0)
 				
 				<div class="navbar-item navbar-user dropdown">
 					<a href="#" class="navbar-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
-						<img src="assets/img/user/user-15.jpg" alt="" /> 
+						<?php
+							echo '
+								<img src="./image/'.$admin_image.'" alt="" /> 
+							'
+						?>
 						<span>
 							<span class="d-none d-md-inline"><?php echo $fname .' '. $lname?></span>
 							<b class="caret"></b>
@@ -94,7 +99,11 @@ if(mysqli_num_rows($result) > 0)
 						<a href="javascript:;" class="menu-profile-link" data-toggle="app-sidebar-profile" data-target="#appSidebarProfileMenu">
 							<div class="menu-profile-cover with-shadow"></div>
 							<div class="menu-profile-image">
-								<img src="assets/img/user/user-15.jpg" alt="" />
+								<?php
+								echo '
+								   <img src="./image/'.$admin_image.'" alt="" /> 
+								   '
+								?>
 							</div>
 							<div class="menu-profile-info">
 								<div class="d-flex align-items-center">

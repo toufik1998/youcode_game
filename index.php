@@ -61,22 +61,22 @@ include('scripts.php');
                 </div>
                 <div class="col-md-6">
                     <div class="registration-form">
-                        <form action="scripts.php" method="POST" id="demo-form" data-parsley-validate="" data-parsley-trigger="keyup">
+                        <form action="scripts.php" method="POST" id="demo-form" data-parsley-validate="" data-parsley-trigger="keyup" enctype="multipart/form-data">
                             <img src="assets/images/youcode-logo-transparent.png" class="mb-3" alt="">
                             <div class="form-group">
                                 <input type="text" name="first-name"  class="form-control item" id="first-name" placeholder="First Name" required>
-                                <!-- <p id="name-err" class="text-danger fs-7 d-none"> please enter a valid user name</p> -->
                             </div>
                             <div class="form-group">
                                 <input type="text" name="last-name"  class="form-control item" id="last-name" placeholder="Last Name" required>
                             </div>
                             <div class="form-group">
                                 <input type="text" name="email" data-parsley-type="email" class="form-control item" id="email" placeholder="Email" required>
-                                 <!-- <p id="email-err" class="text-danger fs-7 d-none"> please enter a valid Email</p> -->
                             </div>
                             <div class="form-group">
                                 <input type="password" name="password" data-parsley-pattern="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/" class="form-control item" id="password" placeholder="Password" required>
-                                <!-- <p id="password-err" class="text-danger fs-7 d-none"> please enter a valid Password</p> -->
+                            </div>
+                            <div class="form-group">
+                                <input type="file" name="uploadfile" class="form-control" id="admin-image" />
                             </div>
                             
                             <div class="form-group">
