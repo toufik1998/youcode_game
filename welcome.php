@@ -34,7 +34,6 @@ if(mysqli_num_rows($result) > 0)
 	<meta content="" name="author" />
 	
 	<!-- ================== BEGIN core-css ================== -->
-	<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" /> -->
 	<link href="assets/css/vendor.min.css" rel="stylesheet" />
 	<link href="assets/css/default/app.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="style.css">
@@ -175,34 +174,34 @@ if(mysqli_num_rows($result) > 0)
 				</div>
 			</div>
 			
-			
 
-			
-				<div class="container-fluid my-5 section-table">
-					<div class="row">
-						<div class="col">
-							<div class="shadow-4 rounded-5 overflow-hidden">
+			<div class="container-fluid my-5 section-table">
+				<div class="row">
+					<div class="col">
+						<div class="shadow-4 rounded-5 overflow-hidden">
+							<div class="table-responsive">
 								<table class="table align-middle mb-0" style="background-color: #2F3843; border-radius: 1rem;">
-								<thead class="text-white-50" style="background-color:  #2F3843; border-radius: 1rem;">
-									<tr style="color: #8D949D;">
-									<th>Product Name</th>
-									<th>Description</th>
-									<th>Amount</th>
-									<th>Date</th>
-									<th>Price</th>
-									<th>Actions</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-										getTasks();
-									?>
-								</tbody>
+									<thead class="text-white-50" style="background-color:  #2F3843; border-radius: 1rem;">
+										<tr style="color: #8D949D;">
+										<th>Product Name</th>
+										<th>Description</th>
+										<th>Amount</th>
+										<th>Date</th>
+										<th>Price</th>
+										<th>Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+											getProducts();
+										?>
+									</tbody>
 								</table>
-							</div>
+							</div>	
 						</div>
 					</div>
 				</div>
+			</div>
 		</div>
 		<!-- END #content -->
 		
@@ -272,9 +271,5 @@ if(mysqli_num_rows($result) > 0)
 	<!-- ================== END core-js ================== -->
 	<script src="scripts.js"></script>
 	
-
-	<script>
-		//reloadTasks();
-	</script>
 </body>
 </html>

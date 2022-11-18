@@ -21,38 +21,30 @@ include('database.php');
 <body>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+        <div class="container-fluid" >
+            <a class="navbar-brand " href="#">
                 <img src="assets/images/youcode-logo-transparent.png" alt="" style="width: 15%">
             </a>
-            <button
-            class="navbar-toggler"
-            type="button"
-            data-mdb-toggle="collapse"
-            data-mdb-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-            >
-            <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button class="">
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                     <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
-                </li>
-            </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <header style="display: flex; justify-content: center; align-items: center;">
+    <header class="mt-5">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
@@ -62,14 +54,14 @@ include('database.php');
                     </div>
                     <div class="col-md-6">
                         <div class="registration-form">
-                            <form action="scripts.php" method="POST" id="demo-form" data-parsley-validate="" data-parsley-trigger="keyup">
+                            <form action="scripts.php" method="POST" id="demo-form" data-parsley-validate data-parsley-trigger="keyup">
                                 <img src="assets/images/youcode-logo-transparent.png" alt="">
 
                                 <div class="form-group mt-3">
-                                    <input type="text" name="email" data-parsley-type="email" class="form-control item" id="email" placeholder="Email">
+                                    <input type="text" name="email" data-parsley-type="email" class="form-control item" id="email" placeholder="Email" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" data-parsley-pattern="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/"  class="form-control item" id="password" placeholder="Password">
+                                    <input type="password" name="password" data-parsley-pattern="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/"  class="form-control item" id="password" placeholder="Password" required>
                                 </div>
                                 
                                 <div class="form-group">

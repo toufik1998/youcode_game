@@ -120,7 +120,7 @@ function addProducts(){
 }
 
 
-function getTasks(){ 
+function getProducts(){ 
     
     $conn = connection();
     $sql = "SELECT * FROM products";
@@ -138,7 +138,7 @@ function getTasks(){
                                 <img
                                     src="./image/'.$row['filename'].'"
                                     alt=""
-                                    style="width: 65px; height: 65px"
+                                    style="width: 75px; height: 75px"
                                     class="rounded-circle bg-white"
                                 />
                                 <div class="ms-3">

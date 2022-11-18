@@ -5,8 +5,6 @@ document.querySelector("#addButton").addEventListener("click", ()=>{
 });
 
 
-
-
 function editTask(id){
     document.querySelector("#task-save-btn").style.display = 'none';
     document.querySelector("#task-update-btn").style.display = 'block';
