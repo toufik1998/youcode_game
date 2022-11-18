@@ -19,71 +19,7 @@ include('scripts.php');
 </head>
 <body>
 
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="assets/images/youcode-logo-transparent.png" alt="" style="width: 15%">
-        </a>
-        <button
-        class="navbar-toggler"
-        type="button"
-        data-mdb-toggle="collapse"
-        data-mdb-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        >
-        <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-        </ul>
-        </div>
-    </div>
-    </nav> -->
-
     <header>
-        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
-                <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="assets/images/youcode-logo-transparent.png" alt="" style="width: 15%">
-                </a>
-                <button
-                class="navbar-toggler"
-                type="button"
-                data-mdb-toggle="collapse"
-                data-mdb-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-                >
-                <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                </ul>
-                </div>
-                </div>
-            </div>
-        </nav> -->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
             <div class="container-fluid" >
@@ -108,7 +44,6 @@ include('scripts.php');
                 </div>
             </div>
         </nav>
-
 
         <div class="container-fluid mt-lg-4 header-content" >
             <div class="row">
@@ -155,65 +90,5 @@ include('scripts.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./assets/parsley/jquery-3.6.1.min.js"></script>
     <script src="./assets/parsley/parsley.min.js"></script>
-    <!-- <script>
-
-        let signupForm = document.getElementById("signup-form");
-        let userName = document.getElementById("first-name");
-        let lastName = document.getElementById("last-name");
-        let email = document.getElementById("email");
-        let password = document.getElementById("password");
-
-        let nameError = document.getElementById("name-err");
-        let errorEmail = document.getElementById("email-err");
-        let errorPassword = document.getElementById("password-err");
-        let disabledBtn = document.getElementById("disable-btn");
-        let regexName = /^[aA0-zZ9\s]+$/;
-        let regexEmail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
-        let regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-        
-
-        function nameErr(e) {
-            console.log(e.value);
-            if(!regexName.test(e.value) || e.value == ""){
-                e.value = "";
-                nameError.classList.remove("d-none");
-                e.focus();
-                console.log(nameError.classList);
-            }else{
-                if(regexName.test(userName.value) && regexName.test(lastName.value) && regexEmail.test(email.value) && regexPassword.test(password.value)){
-                disabledBtn.removeAttribute("disabled");
-                }
-                nameError.classList.add("d-none");
-            }
-
-        }
-
-        function emailError(e){
-            if(!regexEmail.test(e.value) || e.value == ""){
-                e.value = "";
-                errorEmail.classList.remove("d-none");
-                e.focus();
-            }else{
-                if(regexName.test(userName.value) && regexName.test(lastName.value) && regexEmail.test(email.value) && regexPassword.test(password.value)){
-                disabledBtn.removeAttribute("disabled");
-                }
-                errorEmail.classList.add("d-none");
-            }
-        }
-
-        function passwordError(e){
-            if(!regexPassword.test(e.value) || e.value == ""){
-                e.value = "";
-                errorPassword.classList.remove("d-none");
-                e.focus();
-            }else{
-                if(regexName.test(userName.value) && regexName.test(lastName.value) && regexEmail.test(email.   value) && regexPassword.test(password.value)){
-                disabledBtn.removeAttribute("disabled");
-                }
-                errorPassword.classList.add("d-none");
-            }
-        }
-    </script> -->
 </body>
 </html>
